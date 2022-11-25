@@ -10,14 +10,14 @@
         <div class="block">
             <div class="mt-2">
                 <button type="button" class="btn btn-primary">
-                <a class="nav-link active" href=""><strong>{{ object.title }}</strong></a> 
+                <a class="nav-link active" href="/videocards/{{ object.id }}"><strong>{{ object.title }}</strong></a> 
                 </button>
             </div>
 
             <div class="mt-2">
-                <a class="btn btn-dark me-3" href=""><strong>Описание</strong></a>
+                <a class="btn btn-dark me-3" href="/videocards/{{ object.id }}/info"><strong>Описание</strong></a>
 
-                <a class="btn btn-dark" href="" ><strong>Картинка</strong></a>
+                <a class="btn btn-dark" href="/videocards/{{ object.id }}/image" ><strong>Картинка</strong></a>
             </div>
         </div>
     </div>

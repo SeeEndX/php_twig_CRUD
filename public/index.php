@@ -1,6 +1,9 @@
 <?php
 require_once '../vendor/autoload.php';
+require_once '../framework/autoload.php';
 require_once '../controllers/MainController.php';
+require_once "../controllers/ObjectController.php";
+
 require_once '../controllers/ThirtyController.php';
 require_once '../controllers/ThirtyImageController.php';
 require_once '../controllers/ThirtyInfoController.php';
@@ -15,26 +18,17 @@ $twig = new \Twig\Environment($loader, [
 ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
-$url = $_SERVER["REQUEST_URI"];
 $title = "";
 $template = "";
 $url_title = "";
 $context = [];
-
-$controller = new Controller404($twig);
+$categoty = ['description','image','info_full'];
 
 $pdo = new PDO("mysql:host=localhost;dbname=gpus;charset=utf8", "root", "");
 
-if ($url == "/") {
-    $controller = new MainController($twig);
-}
+$router = new Router($twig, $pdo);
+$router->add("/", MainController::class);
+$router->add("/rtx3090", ThirtyController::class);
+$router->add("/videocards/(?P<id>\d+)", ObjectController::class);
 
-
-
-if ($controller) {
-    $controller -> setPDO($pdo);
-    $controller -> get();
-}
-
-
-^/space-objects/(\d+)$
+$router->get_or_default(Controller404::class);
