@@ -1,0 +1,61 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<strong>Главная страница</strong>
+<div class="container mt-5">
+{% for object in videocards %}
+    <div class="item">
+        <img src="{{ object.image }}" style="width:300px; height: 150px; object-fit: cover; border: 1px solid grey; border-radius: 35px;" alt="">
+
+        <div class="block">
+            <div class="mt-2">
+                <button type="button" class="btn btn-primary">
+                <a class="nav-link active" href=""><strong>{{ object.title }}</strong></a> 
+                </button>
+            </div>
+
+            <div class="mt-2">
+                <a class="btn btn-dark me-3" href=""><strong>Описание</strong></a>
+
+                <a class="btn btn-dark" href="" ><strong>Картинка</strong></a>
+            </div>
+        </div>
+    </div>
+    
+{% endfor %}
+</div>
+
+<style>
+    .container {
+        display: flex;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        padding: 10px;
+        margin: 10px;
+        justify-items: center;
+        border-radius: 35px;
+        border: 1px solid grey;
+    }
+
+    .block{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .block>div{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .block>div:first-child{
+        justify-content: center;
+    }
+
+</style>
+
+{% endblock %}
