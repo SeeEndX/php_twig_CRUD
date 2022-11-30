@@ -22,13 +22,11 @@ $title = "";
 $template = "";
 $url_title = "";
 $context = [];
-$categoty = ['description','image','info_full'];
 
 $pdo = new PDO("mysql:host=localhost;dbname=gpus;charset=utf8", "root", "");
 
 $router = new Router($twig, $pdo);
 $router->add("/", MainController::class);
-$router->add("/rtx3090", ThirtyController::class);
 $router->add("/videocards/(?P<id>\d+)", ObjectController::class);
 
 $router->get_or_default(Controller404::class);

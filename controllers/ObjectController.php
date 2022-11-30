@@ -7,15 +7,15 @@ class ObjectController extends TwigBaseController {
     {
         $context = parent::getContext();
         
-        $query = $this->pdo->prepare("SELECT description, id FROM videocards WHERE id= :my_id;");
+        $query = $this->pdo->prepare("SELECT * FROM videocards WHERE id= :my_id;");
         $query->bindValue("my_id", $this->params['id']);
         $query->execute();
 
         $data = $query->fetch();
         $context['description'] = $data['description'];
-        $context['id'] = $this->params[0];
-        // $context['image'] = $data['image'];
-        // $context['info_full'] = $data['info_full'];
+        $context['image'] = $data['image'];
+        $context['info_full'] = nl2br($data['info_full']);
+        $context['url'] = $this->params[0];
 
         echo $context['description'];
         echo $context['image'];
