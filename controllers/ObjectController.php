@@ -1,6 +1,7 @@
 <?php
+require_once "BaseVideocardController.php";
 
-class ObjectController extends TwigBaseController {
+class ObjectController extends BaseVideocardController {
     public $template = "object.twig";
 
     public function getContext(): array
