@@ -1,35 +1,34 @@
 {% extends "__layout.twig" %}
 
 {% block content %}
-    <div class="ml-5 mb-2 container">
+<div class="ml-5 container">
     <h2>
     Поиск
     </h2>
 
-    <form action="">
-        {# <label>Название <input type="text" class="form-control" name="title"></label> #}
-        <div class="row g-3">
-            <div class="col-sm-3">
-                <select name="object_type">
-                    <option value="all">Все</option>
-                    <option selected value="ada">Ada</option>
-                    <option value="ampere">Ampere</option>
-                    <option value="turing">Turing</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Название" name="title">
-            </div>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" placeholder="Описание" name="description">
-            </div>
-            <div class="col-sm-3">
-                <button type="submit" class="btn btn-dark">Найти</button>
-            </div>
-        </div>
-    </form>
+    <form class="row ml-5 g-3 align-items-center">
+     <div class="col-sm-3">
+        <label class="visually-hidden" for="specificSizeSelect">Preference</label>
+        <select name="object_type" class="form-select" id="specificSizeSelect">
+        <option value="all">Все</option>
+        <option selected value="ada">Ada</option>
+        <option value="ampere">Ampere</option>
+        <option value="turing">Turing</option>
+        </select>
     </div>
-    <div class="ml-5 container">
+    <div class="col-sm-3">
+        <label class="visually-hidden" for="specificSizeInputName">Name</label>
+        <input type="text" class="form-control" placeholder="Название" name="title">
+    </div>
+    <div class="col-sm-3">
+        <label class="visually-hidden" for="specificSizeInputGroupUsername">Description</label>
+        <input type="text" class="form-control" placeholder="Описание" name="description">
+    </div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-dark">Найти</button>
+    </div>
+    </form>
+    
     {% for object in videocards %}
         <div class="border  p-2 mb-2">
           <a href="/videocards/{{ object.id }}">{{object.title}}</a>
