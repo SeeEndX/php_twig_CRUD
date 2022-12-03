@@ -17,7 +17,7 @@ class SearchController extends BaseVideocardController {
     FROM videocards
     WHERE (:title = '' OR title like CONCAT('%', :title, '%'))
         AND (:type ='all' OR type= :type)
-        AND (:description = '' OR info_full like :description)
+        AND (:description = '' OR info_full like CONCAT('%', :description, '%'))
     EOL;
 
         $query = $this->pdo->prepare($sql);
