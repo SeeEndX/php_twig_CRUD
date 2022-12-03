@@ -5,7 +5,6 @@ class TwigBaseController extends BaseController {
     public $title = "";
     public $template = "";
     public $url_title = "";
-
     protected \Twig\Environment $twig;
     
     public function setTwig($twig)
