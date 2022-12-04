@@ -5,7 +5,7 @@
 <div class="container mt-5">
 {% for object in videocards %}
     <div class="item position-relative">
-    <div class="position-absolute" style="right:4px; top: 4px">
+    <div class="position-absolute" style="right:10px; top: 10px;">
         <form action="/videocard/delete" method="POST">
             <input type="hidden" name="id" value="{{ object.id }}">
             <button type="submit" class="btn btn-danger">
@@ -14,7 +14,7 @@
         </form>
         
     </div>
-        <img src="{{ object.image }}" style="width:300px; height: 150px; object-fit: cover; border: 1px solid grey; border-radius: 35px;" alt="">
+        <img src="{{ object.image }}" style="width:300px; height: 150px; object-fit: cover; border: 1px solid grey; border-radius: 5px;" alt="">
 
         <div class="block">
             <div class="mt-2">
