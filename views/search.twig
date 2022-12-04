@@ -5,7 +5,7 @@
     <h2>
     Поиск
     </h2>
-
+    <hr>
     <form class="row ml-5 g-3 align-items-center">
      <div class="col-sm-3">
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
@@ -31,7 +31,7 @@
     
     {% for object in videocards %}
         <div class="border  p-2 mb-2">
-          <a href="/videocards/{{ object.id }}">{{object.title}}</a>
+          <a href="/videocard/{{ object.id }}">{{object.title}}</a>
         </div>              
     {% endfor %}  
     </div>

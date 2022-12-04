@@ -1,0 +1,55 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<div class="ml-5 container">
+    <h2>Добавление видеокарты</h2>
+    <hr>
+
+    {% if message %}
+    <div class="alert alert-info">
+        {{ message }}
+        <a href="/videocard/{{id}}">открыть новый объект</a>
+    </div>
+    {% endif %}
+
+    <form action="" enctype="multipart/form-data" method="POST" class="row ml-5 g-3 align-items-center">
+        <div class="col-4">
+            <label class="form-label">Название</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <div class="col-4">
+            <label class="form-label">Краткое описание</label>
+            <input type="text" class="form-control" name="description">
+        </div>
+        <div class="col-4">
+            <label class="form-label">Тип</label>
+            <select class="form-control" name="type">
+                <option value="ada">Ada</option>
+                <option value="ampere">Ampere</option>
+                <option value="turing">Turing</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Картинка</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+        <div class="col-12">
+            <textarea name="info_full" placeholder="Полное описание" class="form-control" rows="5"></textarea>
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{# NVIDIA GeForce RTX 2070
+Мощь предпредыдущего поколения
+Turing
+
+RTX 2070 - видеокарта, мощная, все тянет, круто
+
+680$ - Стоимость (но у нас раза в 2 больше, РА СИ Я)
+
+52/100 - Мощность в рейтинге видеокарт #}

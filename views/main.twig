@@ -4,19 +4,28 @@
 <strong>Главная страница</strong>
 <div class="container mt-5">
 {% for object in videocards %}
-    <div class="item">
+    <div class="item position-relative">
+    <div class="position-absolute" style="right:4px; top: 4px">
+        <form action="/videocard/delete" method="POST">
+            <input type="hidden" name="id" value="{{ object.id }}">
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-times"></i>
+            </button>
+        </form>
+        
+    </div>
         <img src="{{ object.image }}" style="width:300px; height: 150px; object-fit: cover; border: 1px solid grey; border-radius: 35px;" alt="">
 
         <div class="block">
             <div class="mt-2">
                 <button type="button" class="btn btn-primary">
-                <a class="nav-link active" href="/videocards/{{ object.id }}"><strong>{{ object.title }}</strong></a> 
+                <a class="nav-link active" href="/videocard/{{ object.id }}"><strong>{{ object.title }}</strong></a> 
                 </button>
             </div>
 
             <div class="mt-2">
-                <a class="btn btn-dark me-3" href="/videocards/{{ object.id }}?show=info"><strong>Описание</strong></a>
-                <a class="btn btn-dark" href="/videocards/{{ object.id }}?show=image" ><strong>Картинка</strong></a>
+                <a class="btn btn-dark me-3" href="/videocard/{{ object.id }}?show=info"><strong>Описание</strong></a>
+                <a class="btn btn-dark" href="/videocard/{{ object.id }}?show=image" ><strong>Картинка</strong></a>
             </div>
         </div>
     </div>
