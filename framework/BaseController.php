@@ -14,6 +14,17 @@ abstract class BaseController {
     public function getContext(): array {
         return [];
     }
+
+    public function process_response() {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $context = $this->getContext();
+        if ($method == 'GET') {
+            $this->get($context);
+        } else if ($method == 'POST') {
+            $this->post($context);
+        }
+    }
     
-    abstract public function get();
+    public function get(array $context) {}
+    public function post(array $context) {}
 }
