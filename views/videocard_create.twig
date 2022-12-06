@@ -27,9 +27,6 @@
                 {% for t in v_types %}
                     <option value={{t.name}}>{{t.name}}</option>
                 {% endfor %}
-                {# <option value="ada">Ada</option>
-                <option value="ampere">Ampere</option>
-                <option value="turing">Turing</option> #}
             </select>
         </div>
         <div class="mb-3">
@@ -40,12 +37,8 @@
             <textarea name="info_full" placeholder="Полное описание" class="form-control" rows="5"></textarea>
         </div>
         <div class="col-12 text-end">
-            <button name="object" type="submit" value="object" class="btn btn-primary">Добавить</button>
+            <button name="object" type="submit" value="object" class="btn btn-success">Добавить</button>
         </div>
-    </form>
-
-    <form action="">
-
     </form>
 </div>
 
@@ -66,7 +59,7 @@
             <input type="text" class="form-control" name="type_v">
         </div>
         <div class="col-12 text-end">
-            <button name="type" type="submit" value="type" class="btn btn-primary">Добавить</button>
+            <button name="type" type="submit" value="type" class="btn btn-success">Добавить</button>
         </div>
     </form>
 </div>

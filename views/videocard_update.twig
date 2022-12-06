@@ -1,0 +1,45 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+<div class="ml-5 mb-2 container">
+    <h1>Рeдактирование видеокарты {{object.title}}</h1>
+    <hr>
+    
+    {% if message %}
+    <div class="alert alert-info">
+    {{message}}
+    </div>
+    
+    {% endif %}
+    
+    <form type=""  method="POST" enctype="multipart/form-data" class="row g-3">
+        <div class="col-6">
+            <label class="form-label">Название</label>
+            <input type="text" class="form-control" name="title" value="{{object.title}}">
+        </div>
+        <div class="col-6">
+            <label for="formFile" class="form-label">Картинка</label>
+            <input class="form-control" type="file" id="formFile" name="image" value="{{object.image}}">
+        </div>
+        <div class="col-6">
+            <label class="form-label">Краткое описание</label>
+            <input type="text" class="form-control" name="description" value="{{object.description}}">
+        </div>
+        <div class="col-4 mb-3">
+            <label class="form-label">Тип</label>
+            <select class="form-control" name="type">
+                {% for t in v_types %}
+                <option value="{{ t.name }}" {% if t.name == object.type %}selected{% endif %}>{{t.name|title}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-12">
+            <textarea name="info_full" placeholder="Полное описание" class="form-control" rows="5">{{object.info_full}}</textarea>
+        </div>
+        <div class="col-12 text-end">
+            <button name="object" type="submit" value="object" class="btn btn-warning">Изменить</button>
+        </div>
+    </form>
+    </div>
+
+{% endblock %}

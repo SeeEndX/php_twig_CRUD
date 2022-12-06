@@ -7,6 +7,7 @@ require_once '../controllers/Controller404.php';
 require_once '../controllers/SearchController.php';
 require_once '../controllers/VideocardCreateController.php';
 require_once '../controllers/VideocardDeleteController.php';
+require_once "../controllers/VideocardUpdateController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
@@ -27,4 +28,5 @@ $router->add("/videocard/(?P<id>\d+)", ObjectController::class);
 $router->add("/videocard/search", SearchController::class);
 $router->add("/videocard/add", VideocardCreateController::class);
 $router->add("/videocard/delete", VideocardDeleteController::class);
+$router->add("/videocard/(?P<id>\d+)/edit", VideocardUpdateController::class);
 $router->get_or_default(Controller404::class);
