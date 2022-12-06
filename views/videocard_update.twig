@@ -19,7 +19,7 @@
         </div>
         <div class="col-6">
             <label for="formFile" class="form-label">Картинка</label>
-            <input class="form-control" type="file" id="formFile" name="image" value="{{object.image}}">
+            <input class="form-control" type="file" id="image" name="image" value="{{object0.image}}">
         </div>
         <div class="col-6">
             <label class="form-label">Краткое описание</label>
@@ -29,7 +29,7 @@
             <label class="form-label">Тип</label>
             <select class="form-control" name="type">
                 {% for t in v_types %}
-                <option value="{{ t.name }}" {% if t.name == object.type %}selected{% endif %}>{{t.name|title}}</option>
+                <option value="{{ t.name }}" {% if t.name == object.type %} selected{% endif %}>{{ object.type|title }}</option>
                 {% endfor %}
             </select>
         </div>
