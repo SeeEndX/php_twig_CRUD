@@ -8,7 +8,7 @@
     {% if message %}
     <div class="alert alert-info">
         {{ message }}
-        <a href="/videocard/{{id}}">открыть новый объект</a>
+        <a href="/videocard/{{id}}">открыть новый объект {{title}}</a>
     </div>
     {% endif %}
 
@@ -24,8 +24,8 @@
         <div class="col-4">
             <label class="form-label">Тип</label>
             <select class="form-control" name="type">
-                {% for type in v_type %}
-                    <option value="{{ucfirst(type)}}">{{type}}</option>
+                {% for t in v_types %}
+                    <option value={{t.name}}>{{t.name}}</option>
                 {% endfor %}
                 {# <option value="ada">Ada</option>
                 <option value="ampere">Ampere</option>
@@ -40,19 +40,34 @@
             <textarea name="info_full" placeholder="Полное описание" class="form-control" rows="5"></textarea>
         </div>
         <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary">Добавить</button>
+            <button name="object" type="submit" value="object" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+
+    <form action="">
+
+    </form>
+</div>
+
+<div class="ml-5 container">
+    <h2>Добавление типа видеокарты</h2>
+    <hr>
+
+    {% if message_t %}
+    <div class="alert alert-info">
+        {{ message_t }}
+        {{type_t}}
+    </div>
+    {% endif %}
+
+    <form action="" enctype="multipart/form-data" method="POST" class="row ml-5 g-3 align-items-center">
+        <div class="col-4">
+            <label class="form-label">Тип</label>
+            <input type="text" class="form-control" name="type_v">
+        </div>
+        <div class="col-12 text-end">
+            <button name="type" type="submit" value="type" class="btn btn-primary">Добавить</button>
         </div>
     </form>
 </div>
 {% endblock %}
-
-
-{# NVIDIA GeForce RTX 2070
-Мощь предпредыдущего поколения
-Turing
-
-RTX 2070 - видеокарта, мощная, все тянет, круто
-
-680$ - Стоимость (но у нас раза в 2 больше, РА СИ Я)
-
-52/100 - Мощность в рейтинге видеокарт #}

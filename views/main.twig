@@ -8,8 +8,11 @@
     <div class="position-absolute" style="right:10px; top: 10px;">
         <form action="/videocard/delete" method="POST">
             <input type="hidden" name="id" value="{{ object.id }}">
+            <button type="submit" class="btn btn-warning">
+                <i class="fas fa-pen"></i>
+            </button>
             <button type="submit" class="btn btn-danger">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-trash"></i>
             </button>
         </form>
         

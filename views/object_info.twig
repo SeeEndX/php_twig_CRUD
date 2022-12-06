@@ -1,7 +1,17 @@
 {% extends "object.twig" %}
 
 {% block objectContent %}
-<div class="container">
- {{info_full}}
-</div>
+<br>
+<pre>
+{{info_full}}
+</pre>
+
+<style>
+pre {
+    font-size: 20px;
+    font-family: system-ui;
+    white-space: pre-wrap;
+}
+</style>
+
 {% endblock %}

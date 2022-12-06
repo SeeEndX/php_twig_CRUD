@@ -27,7 +27,7 @@ class ObjectController extends BaseVideocardController {
         $data = $query->fetch();
         $context['description'] = $data['description'];
         $context['image'] = $data['image'];
-        $context['info_full'] = nl2br($data['info_full']);
+        $context['info_full'] = $data['info_full'];
         $context['id_v'] = $data['id'];
         return $context;
     }
