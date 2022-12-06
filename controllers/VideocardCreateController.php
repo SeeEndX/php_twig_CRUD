@@ -10,6 +10,12 @@ class VideocardCreateController extends BaseVideocardController {
         parent::get($context);
     }
 
+    public function getContext():array{
+        $context=parent::getContext();
+        $query=$this->pdo->prepare("SELECT * FROM v_types")
+
+    }
+
     public function post(array $context) {
         $title = $_POST['title'];
         $description = $_POST['description'];

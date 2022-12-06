@@ -24,9 +24,12 @@
         <div class="col-4">
             <label class="form-label">Тип</label>
             <select class="form-control" name="type">
-                <option value="ada">Ada</option>
+                {% for type in v_type %}
+                    <option value="{{ucfirst(type)}}">{{type}}</option>
+                {% endfor %}
+                {# <option value="ada">Ada</option>
                 <option value="ampere">Ampere</option>
-                <option value="turing">Turing</option>
+                <option value="turing">Turing</option> #}
             </select>
         </div>
         <div class="mb-3">
