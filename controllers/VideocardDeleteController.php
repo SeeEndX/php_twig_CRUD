@@ -1,6 +1,6 @@
 <?php
 
-class VideocardDeleteController extends BaseController {
+class VideocardDeleteController extends BaseController {   
     public function post(array $context)
     {
         $id = $_POST['id'];
