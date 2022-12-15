@@ -1,23 +1,24 @@
 {% extends "__layout.twig" %}
 
 {% block content %}
-<div class="ml-5 mb-2 container">
-    <h1>Вход</h1>
-    <hr>
-    
-    <form type=""  method="POST" enctype="multipart/form-data" class="row g-3">
-        <div class="col-sm-3">
-        <label class="visually-hidden" for="specificSizeInputName">Имя пользователя</label>
-        <input type="text" class="form-control" placeholder="Имя пользователя" name="username">
+<div class="row align-items-center">
+<form enctype="multipart/form-data" method="POST" class="row">
+        <div class = "row text-center">
+            <div class="col-8">
+                <label class="form-label">Логин</label>
+				<input type="text" class="form-control" name="username">
+            </div>
+
+            <div class="col-8">
+                <label class="form-label">Пароль</label>
+				<input type="password" class="form-control" name="password">
+            </div>
+
+            <div class="col-8 mt-3">
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <label class="visually-hidden" for="specificSizeInputGroupUsername">Пароль</label>
-            <input type="text" class="form-control" placeholder="Пароль" name="password">
-        </div>
-        <div class="col-sm-2">
-            <button type="submit" class="btn btn-access">Войти</button>
-        </div>
-    </form>
-    </div>
+</form>
+</div>
 
 {% endblock %}

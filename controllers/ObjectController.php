@@ -29,6 +29,8 @@ class ObjectController extends BaseVideocardController {
         $context['image'] = $data['image'];
         $context['info_full'] = $data['info_full'];
         $context['id_v'] = $data['id'];
+        $context["my_session_message"] = isset($_SESSION['welcome_message']) ? $_SESSION['welcome_message'] : "";
+        $context["messages"] = isset($_SESSION['messages']) ? $_SESSION['messages'] : "";
         return $context;
     }
 }
