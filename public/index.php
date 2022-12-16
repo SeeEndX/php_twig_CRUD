@@ -32,10 +32,10 @@ $context = [];
 $pdo = new PDO("mysql:host=localhost;dbname=gpus;charset=utf8", "root", "");
 
 $router = new Router($twig, $pdo);
-$router->add("/", MainController::class);
+$router->add("/", MainController::class)->middleware(new LoginRequiredMiddleware());;
 $router->add("/login",LoginController::class);
-$router->add("/videocard/(?P<id>\d+)", ObjectController::class);
-$router->add("/videocard/search", SearchController::class);
+$router->add("/videocard/(?P<id>\d+)", ObjectController::class)->middleware(new LoginRequiredMiddleware());; 
+$router->add("/videocard/search", SearchController::class)->middleware(new LoginRequiredMiddleware());;
 $router->add("/logout", LogoutController::class);
 $router->add("/videocard/add", VideocardCreateController::class)->middleware(new LoginRequiredMiddleware());
 $router->add("/videocard/delete", VideocardDeleteController::class)->middleware(new LoginRequiredMiddleware());
